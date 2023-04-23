@@ -1,3 +1,4 @@
+import TodoList from "./components/TodoList"
 
 
 function App() {
@@ -5,7 +6,13 @@ function App() {
 
   return (
     <>
-        Todo List App - With Redux toolkit - typescript template
+       <h2> Todo List App - With Redux toolkit - typescript template</h2>
+
+       <div>
+        <TodoList/>
+       </div>
+
+       
     </>
   )
 }
