@@ -76,11 +76,12 @@ const TodoList = () => {
     }
 
     return (
-        <>                                                                      
+        <>            
+           <h2> Todo List App - With Redux toolkit - typescript template</h2>                                                          
             <div style={{ backgroundColor: theme }} className='container'>
-           
+         
                 <div className='changeTheme'>
-                    <p>Change backgroudn color : </p>
+                    <p>Change Background color : </p>
                     <select value={color} onChange={(e) => setColor(e.target.value)}>
 
                         <option value={'white'}>white</option>
@@ -96,7 +97,7 @@ const TodoList = () => {
                     <div className='user-box-input'>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <div>
-                                <label>Name</label>
+                                <label>TODO</label>
                                 <input 
                                 type='text' 
                                 value={todo} 
@@ -105,27 +106,29 @@ const TodoList = () => {
                                 />
                             </div>
                             <div>
-                                <label>User Name</label>
+                                <label>CAPTION</label>
                                 <input type='text' value={caption} onChange={(e) => setCaption(e.target.value)} placeholder='name' />
                             </div>
-                            <div>
-                                {editMode ? <button type='submit'>update </button> : <button type='submit'>create </button>}
+                            <div className='handleButton'>
+                                {editMode ? <button type='submit' className='update'>update </button> : <button className='create' type='submit'>create </button>}
                             </div>
                         </form>
                     </div>
 
-                    <div className='user-container'>
+                    <div className='todo-container'>
                         {todoList.map((item, index) => (
-                            <div className='user-content' key={item.id}>
+                            <div className='todo-content' key={item.id}>
                                 <div className='item'>
                                     <p>{item.id}</p>
-                                    <p>Name : {item.todo}</p>
-                                    <p>UserName : {item.caption}</p>
+                                    <p style={{fontWeight : "bold"}}>Todo :</p>
+                                    <p style={{backgroundColor : "lightcyan" , padding : "5px 25px" }}> {item.todo}</p>
+                                    <p style={{fontWeight : "bold"}}>Caption : </p>
+                                    <p style={{backgroundColor : "lightcyan"}}>{item.caption}</p>
                                 </div>
 
                                 <div className='buttons'>
-                                    <button onClick={() => handleDelete(item)}>delete</button>
-                                    <button onClick={() => handleEdit(item)}>edit</button>
+                                    <button onClick={() => handleDelete(item)} style={{backgroundColor : "tomato" , color : "white"}}>delete</button>
+                                    <button onClick={() => handleEdit(item)} style={{backgroundColor : "lightseagreen" , color : "black" , marginLeft : "10px"}}>edit</button>
                                 </div>
                             </div>
                         ))}
