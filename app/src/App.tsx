@@ -5,15 +5,15 @@ function App() {
 
 
   return (
-    <>
-       <h2> Todo List App - With Redux toolkit - typescript template</h2>
+    <div className="App">
+       
 
-       <div>
+      
         <TodoList/>
-       </div>
+     
 
        
-    </>
+    </div>
   )
 }
 
